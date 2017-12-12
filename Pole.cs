@@ -10,7 +10,23 @@ namespace TowersOfHanoi
     {
         public Pole(int numberOfDiscs)
         {
-
+            discs = numberOfDiscs;
         }
+
+        public int Discs
+        {
+            get
+            {
+                return discs;
+            }
+
+            set
+            {
+                discs = value;
+
+            }
+        }
+
+        private int discs = 0;
     }
 }
