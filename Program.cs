@@ -32,14 +32,14 @@ namespace TowersOfHanoi
             {
                 ShowStacks(args);
 
-                Move(number - 1, args[0], args[2], args[1]);
+                //Move(number - 1, args[0], args[2], args[1]);
 
-                int movedDisc = args[0].Pop();
-                args[2].Push(movedDisc);
+                //int movedDisc = args[0].Pop();
+                //args[2].Push(movedDisc);
 
-                ShowStacks(args[0], args[1], args[2]);
+                //ShowStacks(args[0], args[1], args[2]);
 
-                Move(number - 1, args[1], args[0], args[2]);
+                //Move(number - 1, args[1], args[0], args[2]);
             }
         }
 
@@ -53,6 +53,7 @@ namespace TowersOfHanoi
                     {
                         Console.Write(disc);
                     }
+                    Console.WriteLine();
                 }
                 else
                 {
