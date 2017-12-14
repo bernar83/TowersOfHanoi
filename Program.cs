@@ -18,7 +18,7 @@ namespace TowersOfHanoi
             Stack<int> to = new Stack<int>();
             Stack<int> aux = new Stack<int>();
             AddDiscs(number, from);
-
+            // add showstacks method here
             Move(number, from, aux, to);
 
             Console.ReadKey();
@@ -30,8 +30,7 @@ namespace TowersOfHanoi
         {
             if (number > 0)
             {
-                ShowStacks(args);
-
+                // keep rest
                 //Move(number - 1, args[0], args[2], args[1]);
 
                 //int movedDisc = args[0].Pop();
@@ -60,6 +59,7 @@ namespace TowersOfHanoi
                     Console.WriteLine();
                 }
             }
+            Console.WriteLine("==========");
         }
 
         private static void AddDiscs(int number, Stack<int> pole)
