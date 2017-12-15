@@ -8,15 +8,26 @@ namespace TowersOfHanoi
 {
     class Program
     {
+        // ==Data definition==
+        // Disc is Natural
+        // interp. number of discs on pole
+        // (define 3-DISCS 3)
+        
+        //private static void DiscFunction(int d)
+        //{
+        //    ... d
+        //}
+
+        // ==Functions==
+        // Disc -> Disc
+        
         static void Main(string[] args)
         {
-
-
             int number = AskForDiscs();
 
-            Stack<int> from = new Stack<int>();
-            Stack<int> to = new Stack<int>();
-            Stack<int> aux = new Stack<int>();
+            List<int> from = new List<int>();
+            List<int> to = new List<int>();
+            List<int> aux = new List<int>();
             AddDiscs(number, from);
             // add showstacks method here
             Move(number, from, aux, to);
@@ -62,11 +73,11 @@ namespace TowersOfHanoi
             Console.WriteLine("==========");
         }
 
-        private static void AddDiscs(int number, Stack<int> pole)
+        private static void AddDiscs(int number, List<int> pole)
         {
-            for (var i = 1; i <= number; i++)
+            for (var i = number; number > 0 ; i--)
             {
-                pole.Push(i);
+                pole.Add(i);
             }
         }
 
