@@ -8,29 +8,30 @@ namespace TowersOfHanoi
 {
     class Program
     {
-        // ==Data definition==
-        // Disc is Natural
-        // interp. number of discs on pole
-        // (define 3-DISCS 3)
-        
+        // ================
+        // Data definition:
+        // Disc is Integer
+        // interp. number of discs on a pole
+
         //private static void DiscFunction(int d)
         //{
         //    ... d
         //}
 
-        // ==Functions==
+        // ================
+        // Functions:
         // Disc -> Disc
-        
+
         static void Main(string[] args)
         {
-            int number = AskForDiscs();
+            int number = AskForDiscs();     // Integer -> Integer
 
             List<int> from = new List<int>();
             List<int> to = new List<int>();
             List<int> aux = new List<int>();
-            AddDiscs(number, from);
-            // add showstacks method here
-            Move(number, from, aux, to);
+            AddDiscs(number, from);         // Integer, List -> List
+            ShowStacks(from, aux, to);      // List, List, List -> List, List, List
+            //Move(number, from, aux, to);
 
             Console.ReadKey();
         }
@@ -53,34 +54,42 @@ namespace TowersOfHanoi
             }
         }
 
-        private static void ShowStacks(params Stack<int>[] args)
+        // List, List, List -> List, List, List
+        // Print the amount of discs to console
+        private static void ShowStacks(List<int> from, List<int> aux, List<int> to)
         {
-            for (var i = 0; i < args.Length; i++)
+            List<int>[] poles = new List<int>[] { from, aux, to };
+            for (int i = 0; i < 3; i++)
             {
-                if (args[i].Count > 0)
+                List<int> selectedPole = poles[i];
+                if (selectedPole.Count == 0)
                 {
-                    foreach (var disc in args[i])
+                    Console.WriteLine();
+                }
+                else
+                {
+                    foreach (int disc in selectedPole)
                     {
                         Console.Write(disc);
                     }
                     Console.WriteLine();
                 }
-                else
-                {
-                    Console.WriteLine();
-                }
             }
-            Console.WriteLine("==========");
+            Console.WriteLine("============================================");
         }
 
+        // Integer, List -> List
+        // Add number of discs to pole
         private static void AddDiscs(int number, List<int> pole)
         {
-            for (var i = number; number > 0 ; i--)
+            for (var i = number; i > 0; i--)
             {
                 pole.Add(i);
             }
         }
 
+        // Integer -> Integer
+        // Asks for number of discs to start with
         private static int AskForDiscs()
         {
             bool isNumber = false;
