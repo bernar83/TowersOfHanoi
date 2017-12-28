@@ -8,7 +8,7 @@ namespace TowersOfHanoi
 {
     class Program
     {
-        // ================
+        // ===================
         // Data definition:
         // Disc is Integer
         // interp. number of discs on a pole
@@ -18,7 +18,7 @@ namespace TowersOfHanoi
         //    ... d
         //}
 
-        // ================
+        // ===================
         // Functions:
         // Disc -> Disc
 
@@ -31,26 +31,25 @@ namespace TowersOfHanoi
             List<int> aux = new List<int>();
             AddDiscs(number, from);         // Integer, List -> List
             ShowStacks(from, aux, to);      // List, List, List -> List, List, List
-            //Move(number, from, aux, to);
+            Move(number, from, aux, to);    // Integer, List, List, List 
 
             Console.ReadKey();
         }
 
-        // from, aux, to
-
-        private static void Move(int number, params Stack<int>[] args)
+        private static void Move(int number, List<int> from, List<int> aux, List<int> to)
         {
             if (number > 0)
             {
-                // keep rest
-                //Move(number - 1, args[0], args[2], args[1]);
+                Move(number - 1, from, to, aux);
 
-                //int movedDisc = args[0].Pop();
-                //args[2].Push(movedDisc);
+                int discToRemove = from.Count - 1;
+                int removedDisc = from[discToRemove];
+                from.Remove(removedDisc);
+                to.Add(removedDisc);
 
-                //ShowStacks(args[0], args[1], args[2]);
+                ShowStacks(from, aux, to);
 
-                //Move(number - 1, args[1], args[0], args[2]);
+                Move(number - 1, aux, from, to);
             }
         }
 
