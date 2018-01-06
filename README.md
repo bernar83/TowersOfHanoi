@@ -1,4 +1,4 @@
-# TowersOfHanoi
+# Towers of Hanoi Solver
 
 ## Introduction
 This is a console app that solves Towers of Hanoi step by step. The Towers of Hanoi is a mathematical game that consists of three rods 
