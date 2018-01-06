@@ -24,10 +24,11 @@ namespace TowersOfHanoi
 
         static void Main(string[] args)
         {
-            int number = AskForDiscs();     // Integer -> Integer
+            int number = AskForDiscs();
 
-            ShowStacks(from, aux, to);      // List, List, List -> List, List, List
-            Move(number, from, aux, to);    // Integer, List, List, List 
+            Hanoi hanoi = new Hanoi(number);
+            hanoi.AddDiscs();
+            hanoi.Solve();
 
             Console.ReadKey();
         }

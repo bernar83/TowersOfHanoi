@@ -18,7 +18,13 @@ namespace TowersOfHanoi
             this.number = number;
         }
 
-        public void Move()
+        public void Solve()
+        {
+            ShowStacks();
+            Move(number, from, to, aux);
+        }
+
+        private void Move(int number, Stack<int> from, Stack<int> to, Stack<int> other)
         {
            if (number == 1)
            {
@@ -27,7 +33,12 @@ namespace TowersOfHanoi
                 return;
            }
 
+            Move(number - 1, from, other, to);
 
+            to.Push(from.Pop());
+            ShowStacks();
+
+            Move(number - 1, other, to, from);
         }
 
         // Integer, Stack -> Stack
@@ -42,7 +53,7 @@ namespace TowersOfHanoi
 
         // Stack, Stack, Stack -> Stack, Stack, Stack
         // Print the amount of discs to console
-        public void ShowStacks()
+        private void ShowStacks()
         {
             Stack<int>[] poles = new Stack<int>[] { from, aux, to };
             for (int i = 0; i < 3; i++)
@@ -56,7 +67,7 @@ namespace TowersOfHanoi
                 {
                     foreach (int disc in selectedPole)
                     {
-                        Console.Write(disc);
+                        Console.Write("{0, 5}", disc);
                     }
                     Console.WriteLine();
                 }
